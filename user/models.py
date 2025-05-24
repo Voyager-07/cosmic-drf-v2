@@ -35,6 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     role = models.CharField(max_length=5, choices=[('ADMIN', 'Admin'), ('USER', 'User')], default='USER')
+    pfp = models.URLField(null=True, blank=True)
 
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

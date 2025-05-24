@@ -3,7 +3,7 @@ from .models import Post
 
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(read_only=True)
-
+    author_id = serializers.PrimaryKeyRelatedField(source='author', read_only=True)
     class Meta:
         model = Post
         fields = '__all__'

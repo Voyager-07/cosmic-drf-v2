@@ -10,3 +10,14 @@ class SignupSerializer(serializers.ModelSerializer):
 class SigninSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
+
+
+from rest_framework import serializers
+from .models import User
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        # Include fields you want to expose via API
+        fields = ['id', 'email', 'name', 'username', 'bio', 'role', 'pfp']
+        read_only_fields = ['id', 'role', 'email', 'username']
